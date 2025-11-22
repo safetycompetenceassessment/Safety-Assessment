@@ -157,9 +157,14 @@ function sendNext(){
     if(sendQueue.length === 0) return;
 
     fetch(WEB_APP_URL, {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(sendQueue[0])
+  method: "POST",
+  mode: "no-cors",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(sendQueue[0])
+})
+
     })
     .then(()=>{
         sendQueue.shift();
@@ -236,4 +241,5 @@ function submitTest(){
 </script>
 </body>
 </html>
+
 
